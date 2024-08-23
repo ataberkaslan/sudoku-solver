@@ -3,7 +3,59 @@ function App() {
   const sudokuGrid = Array.from({ length: 9 }, (_, rowIndex) => 
     Array.from({ length: 9 },()=>0)
   );
-
+  function isValidGrid(grid) {
+    const gridSize = 9;
+  
+    // Helper function to check if an array has duplicates ignoring null or 0 values
+    const hasDuplicates = (array) => {
+      const seen = new Set();
+      for (let num of array) {
+        if (num !== null && num !== 0) {
+          if (seen.has(num)) {
+            return true;
+          }
+          seen.add(num);
+        }
+      }
+      return false;
+    };
+  
+    // Check each row
+    for (let row = 0; row < gridSize; row++) {
+      if (hasDuplicates(grid[row])) {
+        return false;
+      }
+    }
+  
+    // Check each column
+    for (let col = 0; col < gridSize; col++) {
+      const column = [];
+      for (let row = 0; row < gridSize; row++) {
+        column.push(grid[row][col]);
+      }
+      if (hasDuplicates(column)) {
+        return false;
+      }
+    }
+  
+    // Check each 3x3 subgrid
+    for (let startRow = 0; startRow < gridSize; startRow += 3) {
+      for (let startCol = 0; startCol < gridSize; startCol += 3) {
+        const subgrid = [];
+        for (let row = 0; row < 3; row++) {
+          for (let col = 0; col < 3; col++) {
+            subgrid.push(grid[startRow + row][startCol + col]);
+          }
+        }
+        if (hasDuplicates(subgrid)) {
+          return false;
+        }
+      }
+    }
+  
+    // If no duplicates found, the grid is valid
+    return true;
+  }
   function isValid(grid, row, col, num) {
     const gridSize = 9;
   
@@ -66,26 +118,15 @@ function App() {
     return true;
   }
   function solve(){
-    if (solveSudoku(sudokuGrid)) {
+    if(!isValidGrid(sudokuGrid)){
+      console.error("Not valid grid!");
+      return;
+    }
+    if (solveSudoku(sudokuGrid) && isValidGrid(sudokuGrid)) {
       console.log("Sudoku solved successfully:");
       console.log(sudokuGrid);
-    } else {
-      console.log("No solution exists.");
     }
   }
-  /*function solve(){
-    sudokuGrid.forEach(row => {
-      row.forEach(cell => {
-        if(cell >= 0 && cell < 10){
-          if(cell === 0){
-
-          }
-        }else{
-         console.warn("Values are not in bounds."); 
-        }
-      })
-    });
-  }*/
   return (
     <div className="App">
       <div className="sudoku">
