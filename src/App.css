@@ -4,6 +4,18 @@ body{
     width: 100vw;
     height: 100vh;
 }
+/* Remove spinner buttons for Chrome, Safari, Edge, and Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove spinner buttons for Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .App {
     width: 450px;
     margin-top: 150px;

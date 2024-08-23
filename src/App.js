@@ -3,6 +3,7 @@ function App() {
   const sudokuGrid = Array.from({ length: 9 }, (_, rowIndex) => 
     Array.from({ length: 9 },()=>0)
   );
+  const steps = [];
   function isValidGrid(grid) {
     const gridSize = 9;
   
@@ -97,12 +98,21 @@ function App() {
           for (let num = 1; num <= 9; num++) {
             if (isValid(grid, row, col, num)) {
               grid[row][col] = num;
-  
+              
+              steps.push({
+                action: 'place',
+                row,
+                col,
+                value: num,
+                grid: grid.map(row => [...row]),  // Clone the grid for the current state
+              });
+
               // Recursively attempt to solve the rest of the grid
               if (solveSudoku(grid)) {
                 return true;
               }
-  
+              steps.pop();
+
               // Backtrack if the number doesn't lead to a solution
               grid[row][col] = null;
             }
@@ -125,6 +135,7 @@ function App() {
     if (solveSudoku(sudokuGrid) && isValidGrid(sudokuGrid)) {
       console.log("Sudoku solved successfully:");
       console.log(sudokuGrid);
+      console.log(steps);
     }
   }
   return (
