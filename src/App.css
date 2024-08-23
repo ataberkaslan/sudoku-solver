@@ -37,13 +37,29 @@ input[type=number] {
 .sudoku-column{
     width: 100%;
     height: 100%;
-    border: 1px black solid;
 }
-.sudoku-column input{
+.sudoku-column:nth-child(3n) input[type="number"] {
+border-right: 2px solid #000;
+}
+
+/* Bottom border of every 3rd row, except the last row */
+.sudoku-row:nth-child(3n) .sudoku-column input[type="number"] {
+border-bottom: 2px solid #000;
+}
+
+/* Apply left border to the first column */
+.sudoku-column:nth-child(1) input[type="number"] {
+border-left: 2px solid #000;
+}
+.sudoku-row:first-child .sudoku-column input {
+border-top: 2px solid #000;
+}
+input[type="number"] {
     width: 100%;
     height: 100%;
+    border: 1px solid #999; /* Light border for all cells */
     outline: 0;
-    border: 0;
-    padding: 0;
-    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
 }
