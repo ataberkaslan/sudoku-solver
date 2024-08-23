@@ -26,6 +26,12 @@ input[type=number] {
     left: 50%;
     transform: translateX(-50%);
 }
+.title{
+    text-align: center;
+    font-size: 36px;
+    color: #344861;
+    font-weight: 400;
+}
 .sudoku {
     width: 100%;
     display: flex;
@@ -94,7 +100,7 @@ input[type="number"]:focus {
     border-radius: 5px;
     margin-right: 10px;
 }
-.buttons .solve-btn button:hover {
+.buttons .solve-btn:hover {
     background-color: #7091d5;
 }
 .buttons .clear-btn{

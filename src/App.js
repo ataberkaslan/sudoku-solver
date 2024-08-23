@@ -146,6 +146,7 @@ function App() {
   }
   return (
     <div className="App">
+      <div className='title'>Sudoku Solver</div>
       <div className="sudoku">
         {sudokuGrid.map((row, i) => (
           <div key={i} className="sudoku-row">
