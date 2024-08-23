@@ -100,7 +100,6 @@ function App() {
               grid[row][col] = num;
               
               steps.push({
-                action: 'place',
                 row,
                 col,
                 value: num,
