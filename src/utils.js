@@ -50,7 +50,7 @@ function isValidGrid(grid) {
     return true;
 }
 
-function isValid(grid, row, col, num) {
+function isValidNumber(grid, row, col, num) {
   
     // Check if num is not in the current row
     for (let x = 0; x < gridSize; x++) {
@@ -87,7 +87,7 @@ function solveSudoku(grid) {
         if (grid[row][col] === null || grid[row][col] === 0) {
           // Try numbers 1 through 9
           for (let num = 1; num <= 9; num++) {
-            if (isValid(grid, row, col, num)) {
+            if (isValidNumber(grid, row, col, num)) {
               grid[row][col] = num;
               
               steps.push({
@@ -118,4 +118,4 @@ function solveSudoku(grid) {
     return true;
   }
 
-export {isValid, isValidGrid, solveSudoku, steps,gridSize};
+export {isValidGrid,solveSudoku, steps,gridSize};

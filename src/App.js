@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {isValid,isValidGrid,solveSudoku,steps,gridSize} from "./utils";
+import {isValidGrid,solveSudoku,steps,gridSize} from "./utils";
+import swal from '@sweetalert/with-react'
 
 function App() {
   
@@ -17,11 +18,23 @@ function App() {
   function solve(){
     const newGrid = sudokuGrid.map(row => [...row]);
     if(!isValidGrid(newGrid)){
-      console.error("Not valid grid!");
+      swal({
+        text: "Not a valid grid!", 
+        icon: "error",
+        timer: 1500,
+        buttons: false,
+        
+      });
       return;
     }
     if (solveSudoku(newGrid) && isValidGrid(newGrid)) {
-      console.log("Sudoku solved successfully:");
+      swal({
+        text: "Sudoku solved successfully!", 
+        icon: "success",
+        timer: 1500,
+        buttons: false,
+
+      });
       setSudokuGrid(newGrid);
     }
   }

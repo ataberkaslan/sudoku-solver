@@ -72,6 +72,7 @@ input[type="number"] {
     font-size: 36px;
     color: #364a63;
     cursor: pointer;
+    caret-color: transparent;
     box-sizing: border-box; /* Ensure padding and border are included in the element's width and height */
 }
 input[type="number"]:hover {
@@ -116,4 +117,8 @@ input[type="number"]:focus {
 }
 .buttons .clear-btn:hover {
     background-color: #dce3ed;
+}
+.swal-text{
+    font-size: 24px;
+    font-weight: 400;
 }
