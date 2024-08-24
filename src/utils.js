@@ -1,5 +1,5 @@
 const gridSize = 9;
-const steps = [];
+const steps = []
 
 function isValidGrid(grid) {
     const gridSize = 9;
@@ -118,4 +118,4 @@ function solveSudoku(grid) {
     return true;
   }
 
-export {isValidGrid,solveSudoku, steps,gridSize};
+export {isValidGrid,solveSudoku, steps,gridSize,};
