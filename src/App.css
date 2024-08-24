@@ -21,11 +21,9 @@ input[type=number] {
 }
 
 .App {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
 }
 .container{
     width: 450px;
@@ -40,7 +38,7 @@ input[type=number] {
     font-weight: 400;
 }
 .sudoku {
-    width: 450px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 15px;
@@ -90,7 +88,7 @@ input[type="number"]:focus {
 }
 .buttons{
     height: 60px;
-    width: 450px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -128,4 +126,27 @@ input[type="number"]:focus {
 .swal-text{
     font-size: 24px;
     font-weight: 400;
+}
+@media screen and (max-width: 450px) {
+    
+    .container{
+        width: 100%;
+    }
+    .title {
+        font-size: 28px;
+    }
+    .sudoku{
+        width: 315px;
+        margin: auto;
+        margin-top: 10px;
+    }
+    input[type="number"]{
+        font-size: 20px;
+    }
+    .sudoku-row {
+        height: 35px;
+    }
+    .buttons{
+        width: 315px;
+    }
 }
