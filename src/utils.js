@@ -113,7 +113,9 @@ function solveSudoku(grid) {
         }
       }
     }
-  
+    steps.sort((a, b) => {
+      return a.value - b.value; // Ascending order
+    });
     // If the whole grid is filled correctly, return true
     return true;
   }
