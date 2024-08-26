@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Sudoku Solver",
+  "name": "Sudoku Solver",
+  "description":"A React-based Sudoku solver that uses a recursive backtracking algorithm. Enter your Sudoku puzzle into the interactive grid, and watch as the app solves it in real-time.",
   "icons": [
     {
       "src": "favicon.ico",
