@@ -8,6 +8,7 @@ body{
     font-family: Poppins;
     overflow: hidden;
 }
+/* #535353  */
 /* Remove spinner buttons for Chrome, Safari, Edge, and Opera */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
@@ -155,4 +156,13 @@ input[type="number"]:focus {
     .buttons{
         width: 315px;
     }
+}
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #344861;
+    }
+    .title{
+        color: #f9f7f7;
+    }
+
 }
